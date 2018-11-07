@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1E9A00218C572600833DE3 /* conv_mnist.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E99FF218C572600833DE3 /* conv_mnist.mlmodel */; };
+		2CC6041E218A0E920067644A /* ImprovedImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6041D218A0E920067644A /* ImprovedImageClassifier.mlmodel */; };
+		2CE9254821899F3000C22E3C /* ImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2CE9254721899F3000C22E3C /* ImageClassifier.mlmodel */; };
 		32F77B5C1F0C1C1D006950B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F77B5B1F0C1C1D006950B5 /* AppDelegate.swift */; };
 		32F77B5E1F0C1C1D006950B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F77B5D1F0C1C1D006950B5 /* ViewController.swift */; };
 		32F77B611F0C1C1D006950B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32F77B5F1F0C1C1D006950B5 /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C1E99FF218C572600833DE3 /* conv_mnist.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = conv_mnist.mlmodel; sourceTree = "<group>"; };
+		2CC6041D218A0E920067644A /* ImprovedImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ImprovedImageClassifier.mlmodel; sourceTree = "<group>"; };
+		2CE9254721899F3000C22E3C /* ImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ImageClassifier.mlmodel; sourceTree = "<group>"; };
 		32F77B581F0C1C1D006950B5 /* CoreMLCatsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreMLCatsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F77B5B1F0C1C1D006950B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32F77B5D1F0C1C1D006950B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +60,9 @@
 		32F77B5A1F0C1C1D006950B5 /* CoreMLCatsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2C1E99FF218C572600833DE3 /* conv_mnist.mlmodel */,
+				2CE9254721899F3000C22E3C /* ImageClassifier.mlmodel */,
+				2CC6041D218A0E920067644A /* ImprovedImageClassifier.mlmodel */,
 				32F77B5B1F0C1C1D006950B5 /* AppDelegate.swift */,
 				32F77B5D1F0C1C1D006950B5 /* ViewController.swift */,
 				32F77B5F1F0C1C1D006950B5 /* Main.storyboard */,
@@ -136,7 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C1E9A00218C572600833DE3 /* conv_mnist.mlmodel in Sources */,
 				32F77B5E1F0C1C1D006950B5 /* ViewController.swift in Sources */,
+				2CC6041E218A0E920067644A /* ImprovedImageClassifier.mlmodel in Sources */,
+				2CE9254821899F3000C22E3C /* ImageClassifier.mlmodel in Sources */,
 				32F77B5C1F0C1C1D006950B5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,12 +284,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HS26E3V4RC;
 				INFOPLIST_FILE = CoreMLCatsDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.dmrozov.CoreMLCatsDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ss.CoreMLCupDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Any Application Development Profile";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,12 +302,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HS26E3V4RC;
 				INFOPLIST_FILE = CoreMLCatsDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.dmrozov.CoreMLCatsDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ss.CoreMLCupDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Any Application Development Profile";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -10,6 +10,11 @@ import UIKit
 import AVFoundation
 import Vision
 
+enum ModelClassNames: String {
+    case MyCup = "my cup"
+    case EverythingElse = "other"
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet var resultLabel: UILabel!
@@ -44,12 +49,12 @@ class ViewController: UIViewController {
             connection?.videoOrientation = .portrait
             session.startRunning()
 
-            guard let visionModel = try? VNCoreMLModel(for: Inceptionv3().model) else {
+            guard let visionModel = try? VNCoreMLModel(for: ImageClassifier().model) else {
                 fatalError("Could not load model")
             }
 
             let classificationRequest = VNCoreMLRequest(model: visionModel, completionHandler: handleClassifications)
-            classificationRequest.imageCropAndScaleOption = VNImageCropAndScaleOptionCenterCrop
+            classificationRequest.imageCropAndScaleOption = .centerCrop
             visionRequests = [classificationRequest]
         } catch {
             let alertController = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
@@ -73,13 +78,16 @@ class ViewController: UIViewController {
             return
         }
 
-        var resultString = "Это не кот!"
-        results[0...3].forEach {
-            let identifer = $0.identifier.lowercased()
-            if identifer.range(of: " cat") != nil || identifer.range(of: "cat ") != nil || identifer == "cat" {
-                resifultString = "Это кот!"
-            }
+        var resultString = "Это не моя кружка!"
+
+        let mostConfidentResult = results.sorted { (current, next) -> Bool in
+            return current.confidence > next.confidence
+        }.first
+
+        if case .MyCup = ModelClassNames(rawValue: mostConfidentResult?.identifier.lowercased() ?? "") ?? .EverythingElse {
+            resultString = "Это моя кружка!"
         }
+
         DispatchQueue.main.async {
             self.resultLabel.text = resultString
         }
@@ -100,7 +108,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             requestOptions = [.cameraIntrinsics: cameraIntrinsicData]
         }
 
-        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: 1, options: requestOptions)
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .up, options: requestOptions)
         do {
             try imageRequestHandler.perform(visionRequests)
         } catch {
