@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             connection?.videoOrientation = .portrait
             session.startRunning()
 
-            guard let visionModel = try? VNCoreMLModel(for: ImageClassifier().model) else {
+            guard let visionModel = try? VNCoreMLModel(for: TankClassifier().model) else {
                 fatalError("Could not load model")
             }
 
@@ -78,15 +78,13 @@ class ViewController: UIViewController {
             return
         }
 
-        var resultString = "Это не моя кружка!"
-
         let mostConfidentResult = results.sorted { (current, next) -> Bool in
             return current.confidence > next.confidence
         }.first
 
-        if case .MyCup = ModelClassNames(rawValue: mostConfidentResult?.identifier.lowercased() ?? "") ?? .EverythingElse {
-            resultString = "Это моя кружка!"
-        }
+        let resulConfidence = String(format: "%.2f", mostConfidentResult?.confidence ?? 0)
+
+        let resultString = "\(mostConfidentResult?.identifier ?? "")(\(resulConfidence))"
 
         DispatchQueue.main.async {
             self.resultLabel.text = resultString
